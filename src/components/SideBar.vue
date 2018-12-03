@@ -14,8 +14,8 @@
           }
         }">
           <img :src="userInfo.avatar_url" alt="">
+          <span class="name">{{userInfo.loginname}}</span>
         </router-link>
-        <span class="name">{{userInfo.loginname}}</span>
         <p>积分 {{userInfo.score}}</p>
       </div>
     </div>
