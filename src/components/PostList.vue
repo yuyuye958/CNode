@@ -62,7 +62,6 @@
         }).then((res) => {
           this.loading = false
           this.posts = res.data.data
-          console.log(this.posts)
         }).catch((error) => {
           console.log(error)
         })

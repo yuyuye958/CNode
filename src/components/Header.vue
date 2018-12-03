@@ -1,12 +1,14 @@
 <template>
   <div class="header">
     <div class="header-inner">
-      <a href="#">
+      <Router-link :to="{name: 'root'}">
         <img src="../assets/cnodejs_light.svg" alt="headerBg">
-      </a>
+      </Router-link>
       <ul>
         <li>
-          <a href="#">首页</a>
+          <Router-link :to="{name: 'root'}">
+            首页
+          </Router-link>
         </li>
         <li>
           <a href="#">新手入门</a>

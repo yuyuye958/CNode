@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <Header></Header>
-    <main>
+    <div class="main">
       <router-view name="main"></router-view>
-    </main>
+    </div>
   </div>
 </template>
 <script>
@@ -14,12 +14,12 @@
     name: 'App',
     components: {
       'Header': Header,
-      'PostList': PostList
+      'PostList': PostList,
     }
   }
 </script>
 <style lang="scss">
-  main {
+  .main {
     width: 90%;
     max-width: 1400px;
     margin: 0 auto;

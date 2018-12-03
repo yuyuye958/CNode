@@ -15,7 +15,7 @@
           <li>• 来自 {{post | tabFormatter}}</li>
         </ul>
       </div>
-      <div class="content">
+      <div class="topicContent">
         <div v-html="post.content"></div>
       </div>
       <div class="replyWrapper" v-if="post.replies.length > 0">
@@ -25,7 +25,7 @@
             <router-link :to="{
               name: 'user_info',
               params: {
-                id: reply.author.id
+                name: reply.author.loginname
               }
             }">
               <img :src="reply.author.avatar_url" alt="">
@@ -101,7 +101,7 @@
         }
       }
     }
-    .content {
+    .topicContent {
       padding: 10px 20px 20px;
       background: #fff;
     }

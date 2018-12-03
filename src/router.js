@@ -7,8 +7,6 @@ import UserInfo from './components/UserInfo'
 Vue.use(Router)
 
 export default new Router({
-  mode: 'history',
-  base: process.env.BASE_URL,
   routes: [
     {
       name: 'root',
@@ -26,7 +24,7 @@ export default new Router({
     },
     {
       name: 'user_info',
-      path: '/userInfo/:id',
+      path: '/user/:name',
       components: {
         main: UserInfo
       }
