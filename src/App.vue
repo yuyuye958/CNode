@@ -1,20 +1,29 @@
 <template>
   <div id="app">
     <Header></Header>
+    <main>
+      <PostList></PostList>
+    </main>
   </div>
 </template>
 <script>
   import Header from './components/Header'
+  import PostList from './components/PostList'
 
   export default {
     name: 'App',
     components: {
-      'Header': Header
+      'Header': Header,
+      'PostList': PostList
     }
   }
 </script>
 <style lang="scss">
-  body {
-    margin: 0;
+  main {
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    margin-top: 16px;
+    margin-bottom: 30px;
   }
 </style>
