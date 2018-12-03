@@ -61,11 +61,16 @@
       getArticleData() {
         this.$axios(`https://cnodejs.org/api/v1/topic/${this.$route.params.id}`)
             .then((res) => {
-              this.post = res.data.data
               this.loading = false
+              this.post = res.data.data
             }, (error) => {
               console.log(error)
             })
+      }
+    },
+    watch: {
+      '$route'(to, from) {
+        this.getArticleData()
       }
     }
   }
