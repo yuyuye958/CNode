@@ -1,10 +1,10 @@
 <template>
   <div id="app">
     <Header></Header>
-    <div class="main">
+    <main>
       <router-view name="sideBar"></router-view>
       <router-view name="main"></router-view>
-    </div>
+    </main>
   </div>
 </template>
 <script>
@@ -20,7 +20,7 @@
   }
 </script>
 <style lang="scss">
-  .main {
+  main {
     width: 90%;
     max-width: 1400px;
     margin: 0 auto;

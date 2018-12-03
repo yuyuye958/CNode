@@ -37,19 +37,28 @@
              {{post.last_reply_at | formatData}}
           </span>
         </li>
+        <li>
+          <pagination @handleList="renderList"></pagination>
+        </li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
+  import pagination from './Pagination'
+
   export default {
     name: "PostList",
     data() {
       return {
         loading: false,
         posts: [],
+        page: 1
       }
+    },
+    components: {
+      pagination
     },
     beforeMount() {
       this.loading = true
@@ -58,14 +67,20 @@
     methods: {
       getData() {
         this.$axios.get('https://cnodejs.org/api/v1/topics', {
-          page: 1,
-          limit: 20
+          params: {
+            page: this.page,
+            limit: 20
+          }
         }).then((res) => {
           this.loading = false
           this.posts = res.data.data
         }).catch((error) => {
           console.log(error)
         })
+      },
+      renderList(page) {
+        this.page = page
+        this.getData()
       }
     }
   }
