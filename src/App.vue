@@ -2,7 +2,7 @@
   <div id="app">
     <Header></Header>
     <main>
-      <PostList></PostList>
+      <router-view name="main"></router-view>
     </main>
   </div>
 </template>

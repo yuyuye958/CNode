@@ -1,5 +1,5 @@
 <template>
-  <div class="PostList">
+  <div class="postList">
     <div class="loading" v-if="loading">
       <img src="../assets/loading.gif" alt="loading">
     </div>
@@ -22,9 +22,16 @@
           <span :class="[{good: post.good}, {top: post.top}, {tab: !post.good && !post.top}]">
               {{post | tabFormatter}}
           </span>
-          <span class="title">
-            {{post.title}}
-          </span>
+          <router-link :to="{
+            name: 'post_content',
+            params: {
+              id: post.id
+            }
+          }">
+            <span class="title">
+              {{post.title}}
+            </span>
+          </router-link>
           <span class="last_reply">
              {{post.last_reply_at | formatData}}
           </span>
@@ -65,12 +72,6 @@
 </script>
 
 <style lang="scss" scoped>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
   .loading {
     display: flex;
     justify-content: center;

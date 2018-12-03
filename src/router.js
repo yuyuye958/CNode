@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import PostList from './components/PostList'
+import Article from './components/Article'
+import UserInfo from './components/UserInfo'
 
 Vue.use(Router)
 
@@ -9,17 +11,25 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
+      name: 'root',
       path: '/',
-      name: 'home',
-      component: Home
+      components: {
+        main: PostList
+      }
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      name: 'post_content',
+      path: '/topic/:id',
+      components: {
+        main: Article
+      }
+    },
+    {
+      name: 'user_info',
+      path: '/userInfo/:id',
+      components: {
+        main: UserInfo
+      }
     }
   ]
 })
